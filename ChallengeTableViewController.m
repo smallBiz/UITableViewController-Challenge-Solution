@@ -34,24 +34,59 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    int rows;
+    switch (section) {
+        case 0:
+            rows = 2;
+            break;
+        case 1:
+            rows = 1;
+            break;
+        case 2:
+            rows = 3;
+            break;
+            
+        default:
+            rows = 0;
+            break;
+    }
+    
+    return rows;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    switch (indexPath.section) {
+        case 0:
+            cell.textLabel.text = @"I am in Section 0";
+            break;
+        case 1:
+            cell.textLabel.text = @"another section";
+            break;
+        case 2:
+            cell.textLabel.text = [NSString stringWithFormat: @"cell %i",(int)indexPath.row];
+            break;
+            
+        default:
+            cell.textLabel.text = @"Oops something has gone wrong";
+            break;
+            
+    }
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
