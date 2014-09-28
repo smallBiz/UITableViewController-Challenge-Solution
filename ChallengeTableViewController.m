@@ -70,12 +70,15 @@
     switch (indexPath.section) {
         case 0:
             cell.textLabel.text = @"I am in Section 0";
+            cell.textLabel.textColor = [UIColor redColor];
             break;
         case 1:
             cell.textLabel.text = @"another section";
+            cell.textLabel.textColor = [UIColor blueColor];
             break;
         case 2:
             cell.textLabel.text = [NSString stringWithFormat: @"cell %i",(int)indexPath.row];
+            cell.textLabel.backgroundColor = [UIColor yellowColor];
             break;
             
         default:
